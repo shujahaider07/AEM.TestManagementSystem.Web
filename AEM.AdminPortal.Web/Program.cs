@@ -18,8 +18,8 @@ builder.Services.AddDbContext<DatabaseContext>(options =>
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-//builder.Services.AddScoped<IStudentService, StudentService>();
-//builder.Services.AddScoped<IStudentRepository, StudentRepository>();
+//builder.Services.AddTransient<IStudentService, StudentService>();
+//builder.Services.AddTransient<IStudentRepository, StudentRepository>();
 
 var app = builder.Build();
 
@@ -40,6 +40,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Dashboard}/{id?}");
+    pattern: "{controller=Admin}/{action=Login}/{id?}");
 
 app.Run();

@@ -4,6 +4,7 @@ using AEM.TestManagementSystem.Repository.Models.Domain;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AEM.TestManagementSystem.Repository.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    partial class DatabaseContextModelSnapshot : ModelSnapshot
+    [Migration("20231014220917_added  new entities")]
+    partial class addednewentities
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -21,56 +24,6 @@ namespace AEM.TestManagementSystem.Repository.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
-
-            modelBuilder.Entity("AEM.TestManagementSystem.Repository.Entities.Students", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Candidate_ID")
-                        .IsRequired()
-                        .HasColumnType("varchar(20)");
-
-                    b.Property<string>("CreatedBy")
-                        .IsRequired()
-                        .HasColumnType("varchar(200)");
-
-                    b.Property<DateTime?>("CreatedOn")
-                        .HasColumnType("datetime");
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("FirstName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("LastName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ModifiedBy")
-                        .IsRequired()
-                        .HasColumnType("varchar(200)");
-
-                    b.Property<DateTime?>("ModifiedOn")
-                        .HasColumnType("datetime");
-
-                    b.Property<string>("Role")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Students");
-                });
 
             modelBuilder.Entity("AEM.TestManagementSystem.Repository.Models.Domain.ApplicationUser", b =>
                 {
@@ -146,6 +99,52 @@ namespace AEM.TestManagementSystem.Repository.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
+                });
+
+            modelBuilder.Entity("AEM.TestManagementSystem.Repository.Models.Students", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("CreatedBy")
+                        .IsRequired()
+                        .HasColumnType("varchar(200)");
+
+                    b.Property<DateTime?>("CreatedOn")
+                        .HasColumnType("datetime");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ModifiedBy")
+                        .IsRequired()
+                        .HasColumnType("varchar(200)");
+
+                    b.Property<DateTime?>("ModifiedOn")
+                        .HasColumnType("datetime");
+
+                    b.Property<string>("Role")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Students");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

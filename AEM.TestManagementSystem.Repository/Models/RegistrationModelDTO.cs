@@ -7,6 +7,10 @@ namespace AEM.TestManagementSystem.Repository.Models.DTO
         [Key]
         public int Id { get; set; }
         [Required]
+
+        [Display(Name = "Candidate ID")]
+        public string Candidate_ID { get; set; }
+
         public string FirstName { get; set; }
         [Required]
         public string LastName { get; set; }

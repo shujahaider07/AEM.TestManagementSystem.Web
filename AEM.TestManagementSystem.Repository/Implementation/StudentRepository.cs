@@ -1,9 +1,11 @@
-﻿using AEM.TestManagementSystem.Repository.Interfaces;
+﻿using AEM.TestManagementSystem.Repository.Entities;
+using AEM.TestManagementSystem.Repository.Interfaces;
 using AEM.TestManagementSystem.Repository.Models;
 using AEM.TestManagementSystem.Repository.Models.Domain;
 using AEM.TestManagementSystem.Repository.Models.DTO;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using System.Linq.Expressions;
 using System.Security.Claims;
 
 namespace AEM.TestManagementSystem.Repository.Implementation
@@ -24,11 +26,11 @@ namespace AEM.TestManagementSystem.Repository.Implementation
 
         }
 
-        //public async Task<List<RegistrationModelDTO>> GetAllStudents()
+        //public async Task<List<Students>> GetAllStudents()
         //{
         //    try
         //    {
-        //        var listOS = database.students.ToList();
+        //        var listOS = database.Students.ToList();
         //        return listOS;
         //    }
         //    catch (Exception)
@@ -95,5 +97,7 @@ namespace AEM.TestManagementSystem.Repository.Implementation
 				throw;
 			}
         }
+
+     
     }
 }

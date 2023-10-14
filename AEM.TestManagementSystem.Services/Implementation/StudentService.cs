@@ -1,12 +1,11 @@
-﻿using AEM.TestManagementSystem.Repository.Interfaces;
+﻿using AEM.TestManagementSystem.Repository.Entities;
+using AEM.TestManagementSystem.Repository.Interfaces;
 using AEM.TestManagementSystem.Repository.Models;
 using AEM.TestManagementSystem.Repository.Models.Domain;
 using AEM.TestManagementSystem.Repository.Models.DTO;
 using AEM.TestManagementSystem.Services.Interfaces;
 using AEM.TestManagementSystem.Services.Models.DTO;
 using Microsoft.AspNetCore.Identity;
-using System.Collections.Generic;
-using System.Security.Claims;
 
 namespace AEM.TestManagementSystem.Services.Implementation
 {
@@ -31,6 +30,8 @@ namespace AEM.TestManagementSystem.Services.Implementation
         {
             try
             {
+                
+
                 var status = new Status();
                 var userExists = await userManager.FindByNameAsync(model.Username);
                 if (userExists != null)
@@ -57,7 +58,8 @@ namespace AEM.TestManagementSystem.Services.Implementation
                     Email = model.Email,
                     FirstName = model.FirstName,
                     LastName = model.LastName,                    
-                    Role = model.Role
+                    Role = model.Role,
+                    Candidate_ID = model.Candidate_ID
 
                 };
 
@@ -106,12 +108,12 @@ namespace AEM.TestManagementSystem.Services.Implementation
             
         }
 
-        //public async Task<List<RegistrationModelDTO>> GetAllStudents()
+        //public async Task<List<Students>> GetAllStudents()
         //{
         //    try
         //    {
-        //     await studentRepository.GetAllStudents();
-               
+        //        await studentRepository.GetAllStudents();
+
         //    }
         //    catch (Exception)
         //    {

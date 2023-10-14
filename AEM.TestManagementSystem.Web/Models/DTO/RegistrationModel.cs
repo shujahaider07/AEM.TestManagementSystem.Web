@@ -1,6 +1,4 @@
 ﻿using AEM.TestManagementSystem.Repository.Models.DTO;
-using AEM.TestManagementSystem.Services.Models.DTO;
-using System.ComponentModel.DataAnnotations;
 
 namespace AEM.TestManagementSystem.Web.Models.DTO
 {

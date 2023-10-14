@@ -4,7 +4,6 @@ using AEM.TestManagementSystem.Services.Models.DTO;
 using AEM.TestManagementSystem.Web.Models.DTO;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System.Collections.Immutable;
 
 namespace AEM.TestManagementSystem.Web.Controllers
 {

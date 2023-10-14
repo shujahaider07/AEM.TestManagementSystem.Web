@@ -1,14 +1,14 @@
-﻿@model IEnumerable<AEM.TestManagementSystem.Repository.Models.Students>
+﻿@model IEnumerable<AEM.TestManagementSystem.Repository.Entities.Students>
 
 @{
     ViewData["Title"] = "GetAllStudents";
 }
 
-<h1>GetAllStudents</h1>
+<h1>STUDENTS</h1>
 
 <p>
   @*   <a asp-action="Create">Create New</a> *@
-      <small><a asp-area="" asp-action="Create" style="float: left; margin-right: 10px; margin-bottom: 5px; width: 75px;"> <i class="btn btn-block btn-primary " style="margin-top"><span>Create</span></i></a></small>
+      <small><a asp-area="" asp-action="GetAllStudents" style="float: left; margin-right: 10px; margin-bottom: 5px; width: 90px;"> <i class="btn btn-block btn-primary " style="margin-top"><span>Create Quiz</span></i></a></small>
 </p>
 <table class="table table-bordered table-hover table-striped" id="GetStudentTbl">
     <thead>
