@@ -1,4 +1,5 @@
-﻿using liteAdmin.Models;
+﻿using AEM.TestManagementSystem.Repository.Models.Domain;
+using liteAdmin.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -7,16 +8,21 @@ namespace AEM.AdminPortal.Web.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly DatabaseContext ctx;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, DatabaseContext ctx)
         {
             _logger = logger;
+            this.ctx = ctx;
         }
-
+        [HttpGet]
         public IActionResult Dashboard()
         {
+            var countStd = ctx.Students.Count();
+            ViewBag.StudentCount = countStd;
             return View();
         }
+
 
         public IActionResult Privacy()
         {

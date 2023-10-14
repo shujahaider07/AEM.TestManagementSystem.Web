@@ -1,5 +1,4 @@
-﻿
-
+﻿@model IEnumerable<AEM.TestManagementSystem.Repository.Models.Students>
 @*@{
     ViewData["Title"] = "Dashboard";
 }
@@ -33,16 +32,20 @@
             <!-- small box -->  
             <div class="small-box bg-info">
               <div class="inner">
-                @*@foreach (var item in Model) {*@
-            @*   @if(ViewBag.countusers != null){
-                 <h3>@ViewBag.countusers</h3>
-              }else{
+                            
+                            @if (ViewBag.StudentCount != null)
+                            {
+                                <h3>@ViewBag.StudentCount</h3>
+                            }
+                            else
+                            {
 
-                  <h3>Users not found</h3>
-              }
-                @*}*@
-                <p>Total Users</p>
-              </div>
+                                <h2>Users not found</h2>
+                            }
+                            
+                            <p>Total Students</p>
+            </div>
+
               <div class="icon">
                 <i class="ion ion-bag"></i>
               </div>
