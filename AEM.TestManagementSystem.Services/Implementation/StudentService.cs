@@ -30,7 +30,7 @@ namespace AEM.TestManagementSystem.Services.Implementation
         {
             try
             {
-                
+
 
                 var status = new Status();
                 var userExists = await userManager.FindByNameAsync(model.Username);
@@ -57,7 +57,7 @@ namespace AEM.TestManagementSystem.Services.Implementation
                     Id = model.Id,
                     Email = model.Email,
                     FirstName = model.FirstName,
-                    LastName = model.LastName,                    
+                    LastName = model.LastName,
                     Role = model.Role,
                     Candidate_ID = model.Candidate_ID
 
@@ -92,7 +92,7 @@ namespace AEM.TestManagementSystem.Services.Implementation
 
                 throw;
             }
-            
+
         }
 
         public async Task<Status> LoginAsync(LoginModel model)
@@ -105,23 +105,25 @@ namespace AEM.TestManagementSystem.Services.Implementation
             {
                 throw;
             }
-            
+
         }
 
-        //public async Task<List<Students>> GetAllStudents()
-        //{
-        //    try
-        //    {
-        //        await studentRepository.GetAllStudents();
+        public async Task<List<Students>> GetAllStudents()
+        {
+            try
+            {
+                var students = await studentRepository.GetAllStudents();
 
-        //    }
-        //    catch (Exception)
-        //    {
+                // You can work with the 'students' list here if needed.
 
-        //        throw;
-        //    }
+                return students; // Return the list
+            }
+            catch (Exception ex)
+            {
 
-        //    return null;
-        //}
+                return new List<Students>(); // Or any other handling logic.
+            }
+        }
+
     }
 }

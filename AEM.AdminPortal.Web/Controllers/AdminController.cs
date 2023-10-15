@@ -10,7 +10,7 @@ namespace AEM.AdminPortal.Web.Controllers
 {
     public class AdminController : Controller
     {
-        
+
         private readonly IStudentService studentService;
         private readonly DatabaseContext ctx;
         private readonly INotyfService _notyf;
@@ -21,23 +21,27 @@ namespace AEM.AdminPortal.Web.Controllers
             this._notyf = _notyf;
         }
 
-        
-        [HttpGet]
 
-        public async Task<IActionResult> GetAllStudents()
-        {
-            try
-            {
-                var data = await ctx.Students.ToListAsync();
-                return View(data);
-            }
-            catch (Exception)
-            {
+        //[HttpGet]
 
-                throw;
-            }
-            return null;
-        }
+        //public async Task<IActionResult> GetAllStudents()
+        //{
+        //    if (HttpContext.Session.GetString("username") == null)
+        //    {
+        //        return RedirectToAction("LoginView", "Login");
+        //    }
+        //    try
+        //    {
+        //        var data = await ctx.Students.Where(x => x.Role == "user").ToListAsync();
+        //        return View(data);
+        //    }
+        //    catch (Exception)
+        //    {
+
+        //        throw;
+        //    }
+        //    return null;
+
 
         public IActionResult SignUp()
         {
@@ -86,7 +90,7 @@ namespace AEM.AdminPortal.Web.Controllers
                 HttpContext.Session.SetString("password", model.Password);
                 _notyf.Success("Login Sucessfull");
                 return RedirectToAction("Dashboard", "Home");
-          
+
             }
             else
             {
@@ -95,6 +99,20 @@ namespace AEM.AdminPortal.Web.Controllers
                 return RedirectToAction(nameof(Login));
             }
         }
-       
+
+        [Route("logout")]
+        [HttpGet]
+        public IActionResult Logout()
+        {
+
+          
+
+            HttpContext.Session.Remove("username");
+            HttpContext.Session.Remove("password");
+            HttpContext.Session.Clear();
+
+            return RedirectToAction(nameof(Login));
+        }
+
     }
 }

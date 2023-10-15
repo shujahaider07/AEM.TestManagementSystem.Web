@@ -15,6 +15,7 @@ namespace AEM.AdminPortal.Web.Controllers
             _logger = logger;
             this.ctx = ctx;
         }
+        
         [HttpGet]
         public IActionResult Dashboard()
         {

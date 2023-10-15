@@ -73,8 +73,8 @@ namespace AEM.TestManagementSystem.Web.Controllers
         [HttpGet]
         public async Task<IActionResult> GetStudentsList()
         {
-           
-              
+            
+
             var result = await ctx.Students.ToListAsync();
             return View(result);
            
