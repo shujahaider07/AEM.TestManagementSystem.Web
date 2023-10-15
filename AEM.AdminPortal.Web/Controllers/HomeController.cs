@@ -1,4 +1,5 @@
-﻿using AEM.TestManagementSystem.Repository.Models.Domain;
+﻿using AEM.TestManagementSystem.Repository.Entities;
+using AEM.TestManagementSystem.Repository.Models.Domain;
 using liteAdmin.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
@@ -23,10 +24,15 @@ namespace AEM.AdminPortal.Web.Controllers
             return View();
         }
 
-
-        public IActionResult Privacy()
+        [HttpGet]
+        public IActionResult Index()
         {
+            // Students objHis = HttpContext.Session.GetObjectFromJson<Students>("AuthenticatedUser");
+            // IQueryable<Students> iqCandidate = await _stud.SearchCandidate(e => e.Sl_No.Equals(objHis.Sl_No));
+            //Students objCandidate = iqCandidate.FirstOrDefault();
+            //return View(objCandidate);
             return View();
+           
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

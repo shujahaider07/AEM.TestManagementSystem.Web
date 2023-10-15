@@ -1,8 +1,4 @@
-using AEM.TestManagementSystem.Repository.Implementation;
-using AEM.TestManagementSystem.Repository.Interfaces;
 using AEM.TestManagementSystem.Repository.Models.Domain;
-using AEM.TestManagementSystem.Services.Implementation;
-using AEM.TestManagementSystem.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);

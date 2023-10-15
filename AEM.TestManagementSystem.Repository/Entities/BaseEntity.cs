@@ -20,10 +20,10 @@ namespace Quiz_Application.Services.Entities
         public DateTime? ModifiedOn { get; set; }
 
         [Column(TypeName = "varchar(200)")]        
-        public string CreatedBy { get; set; }
+        public string? CreatedBy { get; set; }
 
         [Column(TypeName = "varchar(200)")]
-        public string ModifiedBy { get; set; }
+        public string? ModifiedBy { get; set; }
         public bool IsDeleted { get; set; }
     }
 }
