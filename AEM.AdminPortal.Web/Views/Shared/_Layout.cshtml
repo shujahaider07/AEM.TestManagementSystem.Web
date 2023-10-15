@@ -45,6 +45,7 @@
     <link rel="stylesheet" href="~/plugins/summernote/summernote-bs4.min.css">
     <script src="jquery-3.6.1.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
 
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -466,7 +467,7 @@
     <script src="../../dist/js/demo.js"></script>
     <!-- Page specific script -->
     @RenderSection("Scripts", required: false)
-   @*  @await Component.InvokeAsync("Notyf") *@
+    @await Component.InvokeAsync("Notyf")
     <script>
         $.widget.bridge('uibutton', $.ui.button)
     </script>
@@ -875,9 +876,9 @@
 
 
         @RenderSection("Scripts", required: false)
-        @* @await Component.InvokeAsync("Notyf") *@
+        @await Component.InvokeAsync("Notyf")
 
-  
+    <script src="~/js/site.js" asp-append-version="true"></script>
     <!-- Bootstrap 4 -->
     <script src="~/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- ChartJS -->

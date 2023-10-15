@@ -9,7 +9,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AEM.TestManagementSystem.Se
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AEM.TestManagementSystem.Repository", "AEM.TestManagementSystem.Repository\AEM.TestManagementSystem.Repository.csproj", "{68645946-0751-4C3B-8799-4E812D720B27}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AEM.AdminPortal.Web", "AEM.AdminPortal.Web\AEM.AdminPortal.Web.csproj", "{3703AF5E-791B-4043-ACF1-292AC71B3566}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AEM.AdminPortal.Web", "AEM.AdminPortal.Web\AEM.AdminPortal.Web.csproj", "{3703AF5E-791B-4043-ACF1-292AC71B3566}"
+	ProjectSection(ProjectDependencies) = postProject
+		{68645946-0751-4C3B-8799-4E812D720B27} = {68645946-0751-4C3B-8799-4E812D720B27}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

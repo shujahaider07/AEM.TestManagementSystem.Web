@@ -1,4 +1,5 @@
 ﻿using AEM.TestManagementSystem.Repository.Models.Domain;
+using AEM.TestManagementSystem.Repository.Models.DTO;
 using AEM.TestManagementSystem.Services.Interfaces;
 using AEM.TestManagementSystem.Services.Models.DTO;
 using AEM.TestManagementSystem.Web.Models.DTO;
@@ -31,7 +32,7 @@ namespace AEM.TestManagementSystem.Web.Controllers
                 { 
                     return View(model); 
                 }
-                model.Role = "user";
+                model.Role = "admin";
                 var result = await this.studentService.RegisterAsync(model);
                 TempData["msg"] = result.Message;
 

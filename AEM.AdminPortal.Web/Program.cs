@@ -1,4 +1,11 @@
+using AEM.TestManagementSystem.Repository.Implementation;
+using AEM.TestManagementSystem.Repository.Interfaces;
 using AEM.TestManagementSystem.Repository.Models.Domain;
+using AEM.TestManagementSystem.Services.Implementation;
+using AEM.TestManagementSystem.Services.Interfaces;
+using AspNetCoreHero.ToastNotification;
+using AspNetCoreHero.ToastNotification.Extensions;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,12 +18,23 @@ builder.Services.AddDbContext<DatabaseContext>(options =>
 
 });
 
-// Add services to the container.
+// For Identity  
+builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
+    .AddEntityFrameworkStores<DatabaseContext>()
+    .AddDefaultTokenProviders();
+
 builder.Services.AddControllersWithViews();
+//add services to container
+builder.Services.AddTransient<IStudentService, StudentService>();
+builder.Services.AddTransient<IStudentRepository, StudentRepository>();
 
-//builder.Services.AddTransient<IStudentService, StudentService>();
-//builder.Services.AddTransient<IStudentRepository, StudentRepository>();
-
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(5);//You can set Time
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
+});
+builder.Services.AddNotyf(config => { config.DurationInSeconds = 10; config.IsDismissable = true; config.Position = NotyfPosition.TopRight; });
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -33,7 +51,7 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
-
+app.UseNotyf();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Admin}/{action=Login}/{id?}");

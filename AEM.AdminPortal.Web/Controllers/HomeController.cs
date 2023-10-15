@@ -19,7 +19,7 @@ namespace AEM.AdminPortal.Web.Controllers
         [HttpGet]
         public IActionResult Dashboard()
         {
-            var countStd = ctx.Students.Count();
+            var countStd = ctx.Students.Where(x => x.Role == "user").Count() ;
             ViewBag.StudentCount = countStd;
             return View();
         }
