@@ -40,10 +40,10 @@
                             else
                             {
 
-                                <h2>Users not found</h2>
+                                <h3>Users not found</h3>
                             }
                             
-                            <p>Total Students</p>
+                            <p>Total Students Registered</p>
             </div>
 
               <div class="icon">
@@ -57,9 +57,19 @@
             <!-- small box -->
             <div class="small-box bg-success">
               <div class="inner">
-                <h3>53<sup style="font-size: 20px">%</sup></h3>
+              @*   <h3>53<sup style="font-size: 20px">%</sup></h3> *@
 
-                <p>Bounce Rate</p>
+                            @if (ViewBag.AdminCount != null)
+                            {
+                                <h3>@ViewBag.AdminCount</h3>
+                            }
+                            else
+                            {
+
+                                <h3>Admin not found</h3>
+                            }
+
+                            <p>Total Admin Registered</p>
               </div>
               <div class="icon">
                 <i class="ion ion-stats-bars"></i>
@@ -72,9 +82,9 @@
             <!-- small box -->
             <div class="small-box bg-warning">
               <div class="inner">
-                <h3>44</h3>
+                <h3>15</h3>
 
-                <p>User Registrations</p>
+                <p>Fees Paid Students </p>
               </div>
               <div class="icon">
                 <i class="ion ion-person-add"></i>
@@ -87,9 +97,19 @@
             <!-- small box -->
             <div class="small-box bg-danger">
               <div class="inner">
-                <h3>65</h3>
+           
+                            @if (ViewBag.ExamCount != null)
+                            {
+                                <h3>@ViewBag.ExamCount</h3>
+                            }
+                            else
+                            {
 
-                <p>Unique Visitors</p>
+                                <h3>Courses not found</h3>
+                            }
+
+                            <p>Total Courses</p>
+               
               </div>
               <div class="icon">
                 <i class="ion ion-pie-graph"></i>

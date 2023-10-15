@@ -1,5 +1,4 @@
-﻿using AEM.TestManagementSystem.Repository.Entities;
-using AEM.TestManagementSystem.Repository.Models.Domain;
+﻿using AEM.TestManagementSystem.Repository.Models.Domain;
 using liteAdmin.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
@@ -19,8 +18,13 @@ namespace AEM.AdminPortal.Web.Controllers
         [HttpGet]
         public IActionResult Dashboard()
         {
-            var countStd = ctx.Students.Where(x => x.Role == "user").Count() ;
+            var countStd = ctx.Students.Where(x => x.Role == "user").Count();
+            var countadm = ctx.Students.Where(x => x.Role == "admin").Count();
+            var CountCourses = ctx.Exam.Where(x => x.ExamID == x.ExamID).Count();
+            ViewBag.AdminCount = countadm;
+            ViewBag.ExamCount = CountCourses;
             ViewBag.StudentCount = countStd;
+
             return View();
         }
 
@@ -32,7 +36,7 @@ namespace AEM.AdminPortal.Web.Controllers
             //Students objCandidate = iqCandidate.FirstOrDefault();
             //return View(objCandidate);
             return View();
-           
+
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

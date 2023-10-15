@@ -82,8 +82,8 @@ namespace AEM.AdminPortal.Web.Controllers
             var result = await studentService.LoginAsync(model);
             if (result.StatusCode == 1)
             {
-                //HttpContext.Session.SetString("username", model.Username);
-                //HttpContext.Session.SetString("password", model.Password);
+                HttpContext.Session.SetString("username", model.Username);
+                HttpContext.Session.SetString("password", model.Password);
                 _notyf.Success("Login Sucessfull");
                 return RedirectToAction("Dashboard", "Home");
           
