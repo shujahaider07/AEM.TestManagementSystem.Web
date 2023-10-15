@@ -10,5 +10,6 @@ namespace AEM.TestManagementSystem.Services.Interfaces
         Task<Status> RegisterAsync(RegistrationModelDTO model);
         Task<Status> LoginAsync(LoginModel model);
         Task<List<Students>> GetAllStudents();
+        Task<Students> GetStudentById(int id);
     }
 }

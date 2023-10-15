@@ -125,5 +125,10 @@ namespace AEM.TestManagementSystem.Services.Implementation
             }
         }
 
+        public async Task<Students> GetStudentById(int id)
+        {
+            var GetById = await studentRepository.GetStudentById(id);
+            return GetById;
+        }
     }
 }

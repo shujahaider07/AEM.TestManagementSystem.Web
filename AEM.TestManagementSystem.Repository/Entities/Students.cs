@@ -15,5 +15,8 @@ namespace AEM.TestManagementSystem.Repository.Entities
         public string? Email { get; set; }
         public string? Role { get; set; }
 
+
+       
+
     }
 }

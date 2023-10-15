@@ -2,11 +2,8 @@
 using AEM.TestManagementSystem.Repository.Interfaces;
 using AEM.TestManagementSystem.Repository.Models;
 using AEM.TestManagementSystem.Repository.Models.Domain;
-using AEM.TestManagementSystem.Repository.Models.DTO;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using System.Linq.Expressions;
 using System.Security.Claims;
 
 namespace AEM.TestManagementSystem.Repository.Implementation
@@ -29,17 +26,26 @@ namespace AEM.TestManagementSystem.Repository.Implementation
 
         public async Task<List<Students>> GetAllStudents()
         {
-            var listOS = await database.Students
-             .Where(x => x.Role == "user")
-             .ToListAsync();
 
-            return listOS;
+
+            var GetAllStudent = await database.Students.Where(x => x.Role == "user").ToListAsync();
+
+            return GetAllStudent;
+
+        }
+
+        public async Task<Students> GetStudentById(int id)
+        {
+
+            var getbyId = await database.Students.FindAsync(id);
+
+            return getbyId;
         }
 
         public async Task<Status> LoginAsync(string username, string password)
         {
-			try
-			{
+            try
+            {
                 var status = new Status();
                 var user = await userManager.FindByNameAsync(username);
                 if (user == null)
@@ -85,13 +91,13 @@ namespace AEM.TestManagementSystem.Repository.Implementation
 
                 return status;
             }
-			catch (Exception)
-			{
+            catch (Exception)
+            {
 
-				throw;
-			}
+                throw;
+            }
         }
 
-     
+
     }
 }

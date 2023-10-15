@@ -8,6 +8,7 @@ namespace AEM.TestManagementSystem.Repository.Interfaces
     {
         Task<Status> LoginAsync(string username, string password);
         Task<List<Students>> GetAllStudents();
+        Task<Students> GetStudentById(int id);
     }
 }
  

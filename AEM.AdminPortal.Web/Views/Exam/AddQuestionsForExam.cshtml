@@ -1,0 +1,45 @@
+﻿@model AEM.TestManagementSystem.Repository.Entities.Exam
+
+@{
+    ViewData["Title"] = "EXAM";
+}
+
+<h1>EXAM</h1>
+<form asp-action="AddQuestionsForExam">
+
+    <div class="row">
+        <div class="col-md-4">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="FullMarks" class="control-label"></label>
+                <input asp-for="FullMarks" class="form-control"/>
+                <span asp-validation-for="FullMarks" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="Duration" class="control-label"></label>
+                <input asp-for="Duration" class="form-control" />
+                <span asp-validation-for="Duration" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <input type="submit" value="Create" class="btn btn-primary" />
+    </div>
+
+</form>
+
+
+<div>
+    <a asp-action="AssociationList">Back to List</a>
+</div>

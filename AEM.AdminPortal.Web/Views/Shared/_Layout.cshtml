@@ -151,10 +151,10 @@
                         </li>
 
                         <li class="nav-item">
-                            <a href="~/Admin/GetAllStudents" class="nav-link">
+                            <a href="~/Exam/AddQuestionsForExam" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>
-                                    Setting Page
+                                    Exam
                                     <span class="right badge badge-danger"></span>
                                 </p>
                             </a>
@@ -466,8 +466,8 @@
     <!-- AdminLTE for demo purposes -->
     <script src="../../dist/js/demo.js"></script>
     <!-- Page specific script -->
-    @RenderSection("Scripts", required: false)
-    @await Component.InvokeAsync("Notyf")
+  @*   @RenderSection("Scripts", required: false)
+    @await Component.InvokeAsync("Notyf") *@
     <script>
         $.widget.bridge('uibutton', $.ui.button)
     </script>

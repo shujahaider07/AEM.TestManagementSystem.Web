@@ -4,7 +4,6 @@ using AEM.TestManagementSystem.Services.Models.DTO;
 using AEM.TestManagementSystem.Web.Models.DTO;
 using AspNetCoreHero.ToastNotification.Abstractions;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace AEM.AdminPortal.Web.Controllers
 {
@@ -22,27 +21,6 @@ namespace AEM.AdminPortal.Web.Controllers
         }
 
 
-        //[HttpGet]
-
-        //public async Task<IActionResult> GetAllStudents()
-        //{
-        //    if (HttpContext.Session.GetString("username") == null)
-        //    {
-        //        return RedirectToAction("LoginView", "Login");
-        //    }
-        //    try
-        //    {
-        //        var data = await ctx.Students.Where(x => x.Role == "user").ToListAsync();
-        //        return View(data);
-        //    }
-        //    catch (Exception)
-        //    {
-
-        //        throw;
-        //    }
-        //    return null;
-
-
         public IActionResult SignUp()
         {
             return View("~/Views/Account/SignUp.cshtml");
@@ -58,7 +36,7 @@ namespace AEM.AdminPortal.Web.Controllers
                 {
                     return View(model);
                 }
-                model.Role = "admin";
+                model.Role = "user";
                 var result = await this.studentService.RegisterAsync(model);
                 TempData["msg"] = result.Message;
 

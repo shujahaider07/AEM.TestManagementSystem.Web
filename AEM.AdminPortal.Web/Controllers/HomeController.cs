@@ -24,6 +24,7 @@ namespace AEM.AdminPortal.Web.Controllers
             var CountCourses = ctx.Exam.Where(x => x.ExamID == x.ExamID).Count();
             ViewBag.AdminCount = countadm;
             ViewBag.ExamCount = CountCourses;
+           
             ViewBag.StudentCount = countStd;
 
             return View();
